@@ -9,16 +9,26 @@ spring:
         locator:
           enabled: true
           lower-case-service: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    clean-on-validation-error: false
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
 
 
 server:
-  port:4040
+  port: 4040
 
-
-jpa:
-  hibernate:
-    ddl-auto: update
-  show-sql: true
-  properties:
-    hibernate:
-      format_sql: true
+logging:
+  level:
+    org.flywaydb: INFO
+    org.hibernate.SQL: DEBUG

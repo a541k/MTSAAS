@@ -1,3 +1,33 @@
 spring:
   application:
     name: admin
+  datasource:
+    url: jdbc:mysql://localhost:3306/mtsaas
+    username: veer
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+      database-platform: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: 4041
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.mtsaas: DEBUG
