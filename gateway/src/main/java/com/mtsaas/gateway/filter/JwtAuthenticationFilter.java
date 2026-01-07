@@ -27,7 +27,7 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
 
-    private RouteValidator routeValidator;
+    private final RouteValidator routeValidator;
 
     @Value("${jwt.secret}")
     private String secretKey;
